@@ -11,8 +11,11 @@ export const putUsers = (req, res) => {
 };
 
 export const postUsers = (req, res) => {
+  const { name, age } = req.body;
   res.status(202).json({
     msg: "Post API Controller",
+    name,
+    age,
   });
 };
 
