@@ -11,7 +11,7 @@ const routes = Router();
 
 routes.get("", getUsers);
 
-routes.put("", putUsers);
+routes.put("/:id", putUsers);
 
 routes.post("", postUsers);
 

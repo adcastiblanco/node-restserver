@@ -1,12 +1,16 @@
 export const getUsers = (req, res) => {
+  const queryParams = req.query;
   res.status(200).json({
     msg: "Get API Controller",
+    queryParams,
   });
 };
 
 export const putUsers = (req, res) => {
+  const { id } = req.params;
   res.status(203).json({
     msg: "Put API Controller",
+    id,
   });
 };
 
