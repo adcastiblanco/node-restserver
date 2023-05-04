@@ -1,3 +1,5 @@
+import User from "../models/user.js";
+
 export const getUsers = (req, res) => {
   const queryParams = req.query;
   res.status(200).json({
@@ -14,12 +16,13 @@ export const putUsers = (req, res) => {
   });
 };
 
-export const postUsers = (req, res) => {
-  const { name, age } = req.body;
+export const postUsers = async (req, res) => {
+  const body = req.body;
+  const user = new User(body);
+  await user.save();
   res.status(202).json({
     msg: "Post API Controller",
-    name,
-    age,
+    user,
   });
 };
 

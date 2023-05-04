@@ -1,14 +1,20 @@
 import express from "express";
 import cors from "cors";
 import userRoutes from "../routes/users.js";
+import { dbConnection } from "../db/config.js";
 export class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
     this.usersPath = "/api/users";
+    this.connectDb();
 
     this.middlewares();
     this.createRoutes();
+  }
+
+  async connectDb() {
+    await dbConnection();
   }
 
   middlewares() {
